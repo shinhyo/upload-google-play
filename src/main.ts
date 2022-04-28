@@ -22,6 +22,7 @@ async function run() {
         const inAppUpdatePriority = core.getInput('inAppUpdatePriority', { required: false });
         const userFraction = core.getInput('userFraction', { required: false });
         const status = core.getInput('status', { required: false });
+        const changesNotSentForReview = core.getBooleanInput('changesNotSentForReview', {required: false});
         const whatsNewDir = core.getInput('whatsNewDirectory', { required: false });
         const mappingFile = core.getInput('mappingFile', { required: false });
 
@@ -116,7 +117,8 @@ async function run() {
             status: status,
             whatsNewDir: whatsNewDir,
             mappingFile: mappingFile,
-            name: releaseName
+            name: releaseName,
+            changesNotSentForReview: changesNotSentForReview
         }, validatedReleaseFiles);
 
         console.log(`Finished uploading to the Play Store: ${result}`)
